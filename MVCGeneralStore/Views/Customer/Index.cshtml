@@ -1,0 +1,30 @@
+﻿
+@model IEnumerable<MVCGeneralStore.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.ActionLink("Create", "Create")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+    </tr>
+    @foreach (var customer in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => customer.FullName)
+        </td>
+        <td>
+            @Html.ActionLink("Change", "Edit", new { id = customer.CustomerID })|
+            @Html.ActionLink("More Info", "Details", new { id = customer.CustomerID }) |
+            @Html.ActionLink("Remove", "Delete", new { id = customer.CustomerID })
+        </td>
+    </tr>
+
+    }
+</table>
